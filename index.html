@@ -67,5 +67,25 @@
       </button>
     </div>
   </div>
+<!-- 既存の Tailwind 読み込み -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ここから新しく追加 -->
+  <script>
+    function playSound(file, detailText) {
+      // 1. 音を鳴らす（音声ファイルが sounds フォルダにある前提）
+      const audio = new Audio('sounds/' + file);
+      audio.play();
+
+      // 2. 詳細テキストを表示する
+      const display = document.getElementById('detail-display');
+      const textArea = document.getElementById('detail-text');
+      
+      if (display && textArea) {
+        display.classList.remove('hidden'); // 非表示(hidden)を解除
+        textArea.innerText = detailText;    // 詳細文を書き換え
+      }
+    }
+  </script>
 </body>
 </html>
