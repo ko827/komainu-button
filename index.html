@@ -54,12 +54,6 @@
       <button class="tab bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-full transition">叫び</button>
     </div>
 
-<!-- 詳細表示エリア：最初は hidden で隠しておきます -->
-<div id="detail-display" class="hidden mx-auto max-w-xl mb-10 p-4 bg-slate-800 border border-slate-700 rounded-xl text-center">
-  <p class="text-xs text-slate-400 mb-1">再生中のボイス詳細</p>
-  <div id="detail-text" class="text-white text-lg font-bold"></div>
-</div>
-
     <!-- ボタングリッド -->
     <div class="grid grid-cols-3 md:grid-cols-6 gap-2">
       <button class="sound-button rounded-2xl text-center">
@@ -75,23 +69,5 @@
   </div>
 <!-- 既存の Tailwind 読み込み -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- ここから新しく追加 -->
-  <script>
-    function playSound(file, detailText) {
-      // 1. 音を鳴らす（音声ファイルが sounds フォルダにある前提）
-      const audio = new Audio('sounds/' + file);
-      audio.play();
-
-      // 2. 詳細テキストを表示する
-      const display = document.getElementById('detail-display');
-      const textArea = document.getElementById('detail-text');
-      
-      if (display && textArea) {
-        display.classList.remove('hidden'); // 非表示(hidden)を解除
-        textArea.innerText = detailText;    // 詳細文を書き換え
-      }
-    }
-  </script>
 </body>
 </html>
